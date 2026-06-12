@@ -1,0 +1,135 @@
+/* ─── TECH STACK MARQUEE ─── */
+
+.ts-section {
+  width: 100%;
+  padding: 80px 0 60px;
+  overflow: hidden;
+}
+
+.ts-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Full-width overflow region with fade masks */
+.ts-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Outer track clipping container */
+.ts-track-outer {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Inner scrolling strip */
+.ts-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: ts-scroll-left 35s linear infinite;
+}
+
+.ts-track.reverse {
+  animation-name: ts-scroll-right;
+  animation-duration: 40s;
+}
+
+/* Pause on hover */
+.ts-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── CARD ─── */
+.ts-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 160px;
+  height: 140px;
+  flex-shrink: 0;
+  background: var(--bg-1, #080e1f);
+  border: 1px solid var(--glass-border, rgba(0,245,255,0.10));
+  border-radius: 16px;
+  cursor: default;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ts-card:hover {
+  background: var(--bg-card-hover, rgba(255,255,255,0.07));
+  border-color: var(--glass-border-h, rgba(0,245,255,0.32));
+  box-shadow: 0 0 24px rgba(0,245,255,0.12);
+}
+
+.ts-icon {
+  font-size: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.ts-card:hover .ts-icon {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.ts-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary, #8892a4);
+  transition: color 0.3s ease;
+}
+
+.ts-card:hover .ts-name {
+  color: var(--text-primary, #eef4ff);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes ts-scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes ts-scroll-right {
+  0%   { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .ts-card {
+    width: 130px;
+    height: 118px;
+    gap: 0.75rem;
+  }
+  .ts-icon {
+    font-size: 2.5rem;
+  }
+  .ts-name {
+    font-size: 0.85rem;
+  }
+}

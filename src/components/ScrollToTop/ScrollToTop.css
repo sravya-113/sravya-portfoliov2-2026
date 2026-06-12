@@ -1,0 +1,19 @@
+.stt {
+  position: fixed;
+  bottom: 26px; right: 26px;
+  width: 44px; height: 44px;
+  background: var(--cyan);
+  color: var(--btn-text);
+  border: none;
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 500;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: all .3s var(--ease);
+  box-shadow: 0 4px 20px rgba(0,245,255,.3);
+}
+.stt.visible { opacity:1; transform:translateY(0); pointer-events:all; }
+.stt:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,245,255,.45); }

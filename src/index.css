@@ -1,0 +1,234 @@
+/* ════════════════════════════════════════════════
+   SRAVYA VARANASI — PORTFOLIO 2026
+   Global CSS | Celadon Jade · Midnight Indigo · Warm Sand
+   ════════════════════════════════════════════════ */
+
+/* ─── DESIGN TOKENS ─── */
+:root {
+  /*
+    Palette: "Celadon & Obsidian"
+    Inspired by Song Dynasty celadon ceramics meeting obsidian stone.
+    Celadon (sage-jade) is warm-cool — not teal, not green, entirely its own.
+    Paired with deep obsidian backgrounds and warm sand highlights.
+  */
+
+  /* ── Primary: celadon-jade ── */
+  --primary:           #8BBCAA;
+  --primary-rgb:       139, 188, 170;
+  --primary-bright:    #A8D5C2;
+  --primary-dim:       #6A9D8A;
+  --primary-glow:      rgba(139, 188, 170, 0.13);
+  --primary-glow-s:    rgba(139, 188, 170, 0.28);
+
+  /* ── Accent: warm sand-gold ── */
+  --accent:            #D4A96A;
+  --accent-glow:       rgba(212, 169, 106, 0.12);
+
+  /* ── Highlight: dusty mauve (for ongoing badges etc.) ── */
+  --mauve:             #B07FA3;
+  --mauve-glow:        rgba(176, 127, 163, 0.12);
+
+  /* ── Backgrounds: deep obsidian with a hint of indigo ── */
+  --bg-0:              #08090F;
+  --bg-1:              #0F1018;
+  --bg-2:              #171825;
+  --bg-card:           rgba(255,255,255,0.032);
+  --bg-card-hover:     rgba(255,255,255,0.055);
+
+  /* ── Borders ── */
+  --glass-border:      rgba(139,188,170,0.10);
+  --glass-border-h:    rgba(139,188,170,0.28);
+
+  /* ── Text ── */
+  --text-primary:      #E8EDF2;
+  --text-secondary:    #8A95A3;
+  --text-muted:        #4E5666;
+
+  /* ── Typography ── */
+  --font:              'Outfit', sans-serif;
+  --mono:              'JetBrains Mono', monospace;
+
+  /* ── Radii ── */
+  --r-sm:  8px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-xl:  36px;
+
+  /* ── Misc ── */
+  --shadow-card: 0 8px 48px rgba(0,0,0,0.65);
+  --shadow-glow: 0 0 40px rgba(139,188,170,0.08);
+  --ease:        cubic-bezier(0.4,0,0.2,1);
+  --nav-h:       70px;
+
+  /* ── Legacy aliases (keeps all components working) ── */
+  --cyan:              var(--primary);
+  --cyan-dim:          var(--primary-dim);
+  --cyan-glow:         var(--primary-glow);
+  --cyan-glow-strong:  var(--primary-glow-s);
+  --purple:            var(--mauve);
+  --purple-glow:       var(--mauve-glow);
+  --btn-text:          #08090F;
+}
+
+/* ─── LIGHT THEME ─── */
+body.light {
+  /* ── Primary: celadon-jade ── */
+  --primary:           #4A8B74;
+  --primary-bright:    #35735E;
+  --primary-dim:       #295D4A;
+  --primary-glow:      rgba(74, 139, 116, 0.13);
+  --primary-glow-s:    rgba(74, 139, 116, 0.28);
+  --primary-rgb:       74, 139, 116;
+
+  /* ── Accent: warm sand-gold ── */
+  --accent:            #B88439;
+  --accent-glow:       rgba(184, 132, 57, 0.12);
+
+  /* ── Highlight: dusty mauve ── */
+  --mauve:             #935983;
+  --mauve-glow:        rgba(147, 89, 131, 0.12);
+
+  /* ── Backgrounds ── */
+  --bg-0:              #F8F9FA;
+  --bg-1:              #FFFFFF;
+  --bg-2:              #EDF1F4;
+  --bg-card:           rgba(0,0,0,0.032);
+  --bg-card-hover:     rgba(0,0,0,0.055);
+
+  /* ── Borders ── */
+  --glass-border:      rgba(0,0,0,0.08);
+  --glass-border-h:    rgba(0,0,0,0.18);
+
+  /* ── Text ── */
+  --text-primary:      #1A1D24;
+  --text-secondary:    #4E5666;
+  --text-muted:        #8A95A3;
+
+  /* ── Misc ── */
+  --shadow-card:       0 8px 48px rgba(0,0,0,0.08);
+  --shadow-glow:       0 0 40px rgba(74, 139, 116, 0.08);
+  --btn-text:          #FFFFFF;
+}
+
+
+/* ─── RESET ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);}
+body{
+  font-family:var(--font);
+  background:var(--bg-0);
+  color:var(--text-primary);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+button{font-family:var(--font);cursor:pointer;border:none;background:none;}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg-0);}
+::-webkit-scrollbar-thumb{background:rgba(139,188,170,0.22);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(139,188,170,0.45);}
+
+/* ─── SELECTION ─── */
+::selection{background:rgba(139,188,170,0.18);color:var(--primary-bright);}
+
+/* ─── SHARED ─── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+.section{padding:100px 0;position:relative;}
+
+/* Glass card */
+.glass{
+  background:var(--bg-card);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r-lg);
+  transition:all .3s var(--ease);
+}
+.glass:hover{
+  border-color:var(--glass-border-h);
+  background:var(--bg-card-hover);
+  box-shadow:var(--shadow-glow),var(--shadow-card);
+}
+
+/* Gradient text */
+.grad{
+  background:linear-gradient(135deg,var(--primary-bright),var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* Buttons */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dim));
+  color:var(--btn-text);font-weight:700;font-size:.95rem;
+  padding:14px 28px;border-radius:50px;
+  transition:all .3s var(--ease);white-space:nowrap;
+  position:relative;overflow:hidden;
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(139,188,170,0.35);
+}
+
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--primary);font-weight:600;font-size:.95rem;
+  padding:13px 28px;border-radius:50px;
+  border:1.5px solid var(--primary);
+  transition:all .3s var(--ease);white-space:nowrap;
+}
+.btn-outline:hover{
+  background:var(--primary-glow);
+  box-shadow:0 0 20px rgba(139,188,170,0.20);
+  transform:translateY(-2px);
+}
+
+/* Section header */
+.sec-tag{
+  display:inline-block;
+  font-family:var(--mono);font-size:.75rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:var(--primary);
+  background:rgba(139,188,170,0.07);
+  border:1px solid rgba(139,188,170,0.18);
+  padding:5px 15px;border-radius:50px;margin-bottom:14px;
+}
+.sec-title{
+  font-size:clamp(2rem,4vw,3rem);font-weight:800;
+  line-height:1.15;letter-spacing:-.02em;margin-bottom:10px;
+}
+.sec-sub{color:var(--text-secondary);font-size:1.05rem;}
+.sec-header{text-align:center;margin-bottom:60px;}
+
+/* Tag pill */
+.tag-pill{
+  font-family:var(--mono);font-size:.71rem;font-weight:600;
+  color:var(--primary);
+  background:rgba(139,188,170,0.06);
+  border:1px solid rgba(139,188,170,0.14);
+  padding:3px 10px;border-radius:50px;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp  {from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.25)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes ringRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes spinOrbit{from{transform:rotate(0deg) translateX(260px)}to{transform:rotate(360deg) translateX(260px)}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+/* ─── PARTICLES ─── */
+#particles-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:.25;
+}
