@@ -68,7 +68,7 @@ export default function About() {
               <p className="bio">
                 I'm <strong>Sravya Varanasi</strong>, a B.Tech Computer Science student at{' '}
                 <strong>Andhra University College of Engineering</strong>, Visakhapatnam,
-                graduating in 2026. My journey started with a curiosity for how data can be
+                graduating in 2027. My journey started with a curiosity for how data can be
                 transformed into meaningful decisions — that curiosity evolved into a deep
                 passion for full-stack development and data-driven applications.
               </p>
@@ -94,7 +94,7 @@ export default function About() {
                   <div className="edu-row-body">
                     <div className="edu-row-top">
                       <span className="edu-row-title">B.Tech in Computer Science &amp; Engineering</span>
-                      <span className="edu-row-year">2022 – 2026</span>
+                      <span className="edu-row-year">2024 – 2027</span>
                     </div>
                     <span className="edu-row-sub">Andhra University College of Engineering, Visakhapatnam</span>
                   </div>
@@ -105,9 +105,9 @@ export default function About() {
                   <div className="edu-row-body">
                     <div className="edu-row-top">
                       <span className="edu-row-title">Diploma in Computer Science</span>
-                      <span className="edu-row-year">2019 – 2022</span>
+                      <span className="edu-row-year">2021 – 2024</span>
                     </div>
-                    <span className="edu-row-sub">State Board of Technical Education, AP &nbsp;<span className="edu-grade">🏆 92.4%</span></span>
+                    <span className="edu-row-sub">Government Polytechnic for Women, Srikakulam &nbsp;<span className="edu-grade">🏆 92.4%</span></span>
                   </div>
                 </div>
               </div>
